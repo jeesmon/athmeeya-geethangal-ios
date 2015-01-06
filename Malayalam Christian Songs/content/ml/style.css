@@ -1,0 +1,33 @@
+@font-face
+{
+	font-family: myFont;
+	/*
+    src: url('RachanaMac.ttf');
+    */
+}
+
+body {
+	font-family: myFont;
+	color: #000;
+    font-size: 1.0em;
+    padding-left: 20px;
+}
+
+ol {
+	padding-left: 20px;
+}
+
+ol li {
+	padding-bottom: 10px;
+}
+
+ul {
+	padding-left: 0px;
+	list-style-type: none;
+}
+
+ul.chorus {
+	padding-left: 15px;
+	padding-top: 10px;
+	font-style: italic;
+}
