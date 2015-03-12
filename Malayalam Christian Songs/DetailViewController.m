@@ -96,14 +96,17 @@ bool playing = NO;
     
     audioButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"play.png"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleSong)];
     
-    UIBarButtonItem *youtubeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"youtube.png"] style:UIBarButtonItemStylePlain target:self action:@selector(youtubeSearch)];
+    //UIBarButtonItem *youtubeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"youtube.png"] style:UIBarButtonItemStylePlain target:self action:@selector(youtubeSearch)];
     
     if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         self.navigationController.toolbar.tintColor = [UIColor blackColor];
         self.navigationController.toolbarHidden = NO;
     }
     
-    [self.navigationController.toolbar setItems:@[minusButton, flexSpace, plusButton, flexSpace, actionButton, flexSpace, audioButton, flexSpace, youtubeButton] animated:YES];
+    self.navigationController.toolbar.barTintColor = [UIColor whiteColor];
+    self.navigationController.toolbar.tintColor = [UIColor blackColor];
+    self.navigationController.toolbar.barStyle = UIBarStyleDefault;
+    [self.navigationController.toolbar setItems:@[actionButton] animated:YES];
 }
 
 -(void) showActions {
@@ -114,7 +117,7 @@ bool playing = NO;
                                                     cancelButtonTitle:nil
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:nil];
-    for (NSString *fruit in @[@"Bookmark", @"Email"]) {
+    for (NSString *fruit in @[@"Email"]) {
         [actionSheet addButtonWithTitle:fruit];
     }
     actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
@@ -147,10 +150,10 @@ bool playing = NO;
         SongDao *songDao = [[SongDao alloc] init];
         BOOL status = [songDao addBookmark:self.selectedSong];
         if(status) {
-            [self.view makeToast:@"Song bookmarked" duration:2.0 position:@"bottom"];
+            [self.view makeToast:@"Song bookmarked" duration:2.0 position:@"center"];
         }
         else {
-            [self.view makeToast:@"Song already bookmarked" duration:2.0 position:@"bottom"];
+            [self.view makeToast:@"Song already bookmarked" duration:2.0 position:@"center"];
         }
     }
     else if([buttonTitle isEqualToString:@"Email"]) {
@@ -318,6 +321,7 @@ bool playing = NO;
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    self.navigationController.toolbarHidden = YES;
     [self destroyStreamer];
 }
 

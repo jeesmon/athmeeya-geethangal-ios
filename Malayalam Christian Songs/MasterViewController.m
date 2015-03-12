@@ -185,18 +185,18 @@ UIView *noResultsView;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    self.navigationController.toolbar.barStyle = UIBarStyleBlack;
-    self.navigationController.toolbarHidden = NO;
+    //self.navigationController.toolbar.barStyle = UIBarStyleBlack;
+    self.navigationController.toolbarHidden = YES;
     
     self.tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [self.tableView setScrollsToTop:YES];
     
-    [self setupToolbar];
+    //[self setupToolbar];
     [self setupNoResultsView];
 }
 
 - (void) setupToolbar {
-    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    /*UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *bookmarksToggleButton;
     
     if(bookmarksShown) {
@@ -215,7 +215,11 @@ UIView *noResultsView;
     
     [items addObjectsFromArray:@[flexSpace, bookmarksToggleButton]];
     
+    self.navigationController.toolbar.barTintColor = [UIColor whiteColor];
+    self.navigationController.toolbar.tintColor = [UIColor blackColor];
+    self.navigationController.toolbar.barStyle = UIBarStyleDefault;
     [self.navigationController.toolbar setItems:items animated:YES];
+     */
 }
 
 - (void) deleteAllBookmarks {
@@ -276,7 +280,7 @@ UIView *noResultsView;
     [searchBar sizeToFit];
     searchBar.delegate = self;
     searchBar.placeholder = @"Search in English";
-    searchBar.barStyle = UIBarStyleBlackOpaque;
+    //searchBar.barStyle = UIBarStyleBlackOpaque;
     
     self.songSearchDisplayController.searchResultsDelegate = self;
     self.songSearchDisplayController.searchResultsDataSource = self;
