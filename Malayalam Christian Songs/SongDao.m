@@ -22,13 +22,13 @@
         path = [[NSString alloc] initWithString: [dirPaths[0] stringByAppendingPathComponent: @"bookmarks.db"]];
     }
     
-    NSLog(@"%@", path);
+   
     
     return path;
 }
 
 - (NSDictionary *) fetchSongs: (NSString *) databaseName withLangType: (SongLangType) langType {
-    NSLog(@"fetchSongs: %i", langType);
+  
     NSMutableArray *songs = [NSMutableArray array];
     NSMutableArray *sectionIndexTitleArray = [NSMutableArray array];
     NSMutableArray *sectionIndexTitlePosArray = [NSMutableArray array];
@@ -94,7 +94,6 @@
 }
 
 - (Song *) fetchFirstSong: (NSString *) databaseName withLangType: (SongLangType) langType {
-    NSLog(@"fetchSongs: %i", langType);
     
     Song *song = nil;
     
@@ -153,7 +152,6 @@
 }
 
 - (BOOL) addBookmark: (Song *) song {
-    NSLog(@"addBookmark: %@", song.titleMl);
     
     NSString *databaseName = @"bookmarks";
     NSString *countSql = [NSString stringWithFormat:@"SELECT count(*) from songs where title_ml = '%@'", song.titleMl];
@@ -193,7 +191,6 @@
 }
 
 - (void) deleteBookmark: (Song *) song {
-    NSLog(@"deleteBookmark: %@", song.titleMl);
     
     NSString *databaseName = @"bookmarks";
     NSString *sql = [NSString stringWithFormat:@"DELETE from songs WHERE song_id = %i", song.songId];
@@ -217,7 +214,6 @@
 }
 
 - (void) deleteAllBookmarks {
-    NSLog(@"deleteAllBookmarks");
     
     NSString *databaseName = @"bookmarks";
     NSString *sql = [NSString stringWithFormat:@"DELETE FROM songs"];

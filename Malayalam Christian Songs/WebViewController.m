@@ -31,7 +31,7 @@
 
 - (void)configureView
 {
-    NSLog(@"configureView");
+   
     self.navigationController.toolbarHidden = YES;
     if(self.url) {
         NSURLRequest *requestObj = [NSURLRequest requestWithURL:self.url];

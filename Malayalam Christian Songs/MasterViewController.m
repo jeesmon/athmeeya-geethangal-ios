@@ -62,7 +62,7 @@ UIView *noResultsView;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if(tableView == self.tableView) {
-        NSLog(@"numberOfSectionsInTableView - main");
+       
         if([songs count] == 0 ){
             noResultsView.hidden = NO;
         } else {
@@ -71,7 +71,7 @@ UIView *noResultsView;
         return [indexArray count];
     }
     else {
-        NSLog(@"numberOfSectionsInTableView - filtered");
+      
         return 1;
     }
 }
@@ -126,13 +126,13 @@ UIView *noResultsView;
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"canEditRowAtIndexPath");
+   
     return bookmarksShown ? YES : NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSLog(@"Delete clicked");
+    
         int row = [[sectionIndexArray objectAtIndex:indexPath.section] integerValue] + indexPath.row;
         Song *song = [songs objectAtIndex:row];
         SongDao *dao = [[SongDao alloc] init];
@@ -157,8 +157,7 @@ UIView *noResultsView;
         song = [searchResults objectAtIndex:indexPath.row];
     }
     
-    NSLog(@"Selected row: %i, titleMl: %@", indexPath.row, [song valueForKey:@"titleMl"]);
-    
+   
     song.langType = currentLangType;
     self.detailViewController.selectedSong = song;
     
@@ -223,7 +222,6 @@ UIView *noResultsView;
 }
 
 - (void) deleteAllBookmarks {
-    NSLog(@"deleteAllBookmarks");
     
     UIAlertView *alert = [[UIAlertView alloc]
                           initWithTitle:nil
@@ -266,12 +264,12 @@ UIView *noResultsView;
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
-    NSLog(@"searchBarTextDidBeginEditing");
+   
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
-    NSLog(@"searchBarTextDidEndEditing");
+   
 }
 
 - (void) setupSearch {
@@ -326,11 +324,11 @@ UIView *noResultsView;
 }
 
 -(void) showSearch {
-    NSLog(@"toggleSearch");
+   
 }
 
 -(void) showSongs {
-    NSLog(@"showSongs");
+   
     self.title = @"Songs";
     [self loadData:@"songs" withLangType:currentLangType];
     bookmarksShown = NO;
@@ -338,7 +336,7 @@ UIView *noResultsView;
 }
 
 -(void) showBookmarks {
-    NSLog(@"showBookmarks");
+   
     self.title = @"Bookmarks";
     [self loadData:@"bookmarks" withLangType:currentLangType];
     bookmarksShown = YES;
@@ -347,8 +345,7 @@ UIView *noResultsView;
 
 - (void)filterContentForSearchText:(NSString*)searchText
 {
-    NSLog(@"filterContentForSearchText");
-    
+   
     NSPredicate *resultPredicate = [NSPredicate
                                     predicateWithFormat:@"titleEn contains[cd] %@",
                                     searchText];
@@ -359,7 +356,6 @@ UIView *noResultsView;
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller
 shouldReloadTableForSearchString:(NSString *)searchString
 {
-    NSLog(@"shouldReloadTableForSearchString");
     
     [self filterContentForSearchText:searchString];
     
@@ -367,7 +363,6 @@ shouldReloadTableForSearchString:(NSString *)searchString
 }
 
 -(void) showInfo {
-    NSLog(@"showInfo");
     
     WebViewController *webViewController = [[WebViewController alloc] init];
     webViewController.title = @"About";
@@ -377,7 +372,6 @@ shouldReloadTableForSearchString:(NSString *)searchString
 }
 
 -(void) toggleLang {
-    NSLog(@"toggleLang: %i, %@", currentLangType, langButton.title);
     
     NSString *databaseName = bookmarksShown ? @"bookmarks" : @"songs";
     
@@ -392,7 +386,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
         [self loadData:databaseName withLangType:SongLangTypeMalayalam];
     }
     
-    NSLog(@"toggleLang: %i, %@", currentLangType, langButton.title);
+  
 }
 
 -(void)inspectViewAndSubViews:(UIView*) v level:(int)level {
@@ -417,8 +411,6 @@ shouldReloadTableForSearchString:(NSString *)searchString
             [str appendString:@" >>>scrollsToTop<<<<"];
         }
     }
-    
-    NSLog(@"%@", str);
     
     for (UIView* sv in [v subviews]) {
         [self inspectViewAndSubViews:sv level:level+1];

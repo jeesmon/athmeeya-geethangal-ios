@@ -106,11 +106,10 @@ bool playing = NO;
     self.navigationController.toolbar.barTintColor = [UIColor whiteColor];
     self.navigationController.toolbar.tintColor = [UIColor blackColor];
     self.navigationController.toolbar.barStyle = UIBarStyleDefault;
-    [self.navigationController.toolbar setItems:@[actionButton] animated:YES];
+    [self.navigationController.toolbar setItems:@[actionButton, flexSpace, minusButton, flexSpace, plusButton] animated:YES];
 }
 
 -(void) showActions {
-    NSLog(@"showActions");
     
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
@@ -125,7 +124,7 @@ bool playing = NO;
 }
 
 -(void) toggleSong {
-    NSLog(@"toggleSong");
+   
     if(playing) {
         if(streamer) {
             [streamer pause];
@@ -146,7 +145,7 @@ bool playing = NO;
 - (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
     if([buttonTitle isEqualToString:@"Bookmark"]) {
-        NSLog(@"bookmarking song: %@", self.selectedSong.titleMl);
+       
         SongDao *songDao = [[SongDao alloc] init];
         BOOL status = [songDao addBookmark:self.selectedSong];
         if(status) {
@@ -157,20 +156,20 @@ bool playing = NO;
         }
     }
     else if([buttonTitle isEqualToString:@"Email"]) {
-        NSLog(@"emailing song: %@", self.selectedSong.titleMl);
+       
         [self composeEmail:self.selectedSong];
     }
 }
 
 - (void) setupWebView
 {
-    NSLog(@"setupWebView");
+  
     webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [webView sizeToFit];
     webView.autoresizesSubviews = YES;
     webView.autoresizingMask=(UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
     
-    [webView setDelegate:self];
+    webView.delegate = self;
     webView.scrollView.delegate = self;
     
     [[self view] addSubview:webView];
@@ -179,13 +178,12 @@ bool playing = NO;
 }
 
 -(void) increaseTextSize {
-    NSLog(@"increaseTextSize");
+  
     
     [webView stringByEvaluatingJavaScriptFromString:@"resizeText(1);"];
 }
 
 -(void) youtubeSearch {
-    NSLog(@"youtubeSearch");
     
     WebViewController *webViewController = [[WebViewController alloc] init];
     webViewController.title = @"YouTube";
@@ -195,13 +193,12 @@ bool playing = NO;
 }
 
 -(void) decreaseTextSize {
-    NSLog(@"decreaseTextSize");
-    
+   
     [webView stringByEvaluatingJavaScriptFromString:@"resizeText(-1);"];
 }
 
 -(void) toggleLang {
-    NSLog(@"toggleLang: %i, %@", currentDetailLangType, langDetailButton.title);
+   
     
     if(currentDetailLangType == SongLangTypeMalayalam) {
         langDetailButton.title = @"MAL";
@@ -217,7 +214,6 @@ bool playing = NO;
 
 -(void) showSong {
     if (self.selectedSong) {
-        NSLog(@"titleMl: %@", [self.selectedSong valueForKey:@"titleMl"]);
         
         NSString *columnTitle;
         NSString *columnFilename;
@@ -236,7 +232,7 @@ bool playing = NO;
         if(webView) {
             NSString *filename = [self.selectedSong valueForKey:columnFilename];
             NSString *path = [[NSBundle mainBundle] pathForResource:filename ofType:@""];
-            NSLog(@"path: %@ %@", filename, path);
+         
             if(path) {
                 NSURL *url = [NSURL fileURLWithPath:path];
             
@@ -315,7 +311,7 @@ bool playing = NO;
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"viewWillAppear");
+
     self.navigationController.toolbarHidden = NO;
 }
 
@@ -354,6 +350,29 @@ bool playing = NO;
 {
 	[self destroyStreamer];
 }
+#pragma mark UIWebViewDelegate
 
+//- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+    
+
+    
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    
+    
+    NSString *jsFilePath = [[NSBundle mainBundle] pathForResource:@"script" ofType:@"js"];
+
+    //NSURL *jsURL = [NSURL fileURLWithPath:jsFilePath];
+    NSString *javascriptCode = [NSString stringWithContentsOfFile:jsFilePath encoding:NSUTF8StringEncoding error:nil];
+    [self->webView stringByEvaluatingJavaScriptFromString:javascriptCode];
+
+    NSString *jsFilePath1 = [[NSBundle mainBundle] pathForResource:@"style" ofType:@"css"];
+
+    //NSURL *jsURL1 = [NSURL fileURLWithPath:jsFilePath1];
+    NSString *javascriptCode1 = [NSString stringWithContentsOfFile:jsFilePath1 encoding:NSUTF8StringEncoding error:nil];
+    [self->webView stringByEvaluatingJavaScriptFromString:javascriptCode1];
+}
+//- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error;
 
 @end
