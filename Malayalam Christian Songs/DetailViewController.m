@@ -231,6 +231,10 @@ bool playing = NO;
         
         if(webView) {
             NSString *filename = [self.selectedSong valueForKey:columnFilename];
+            NSLog(@"%@", filename);
+            filename = [filename stringByReplacingOccurrencesOfString:@" " withString:@""];
+            NSLog(@"%@", filename);
+            
             NSString *path = [[NSBundle mainBundle] pathForResource:filename ofType:@""];
          
             if(path) {

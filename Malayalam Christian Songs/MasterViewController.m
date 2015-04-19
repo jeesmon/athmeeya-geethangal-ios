@@ -277,7 +277,7 @@ UIView *noResultsView;
     self.songSearchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
     [searchBar sizeToFit];
     searchBar.delegate = self;
-    searchBar.placeholder = @"Search in English";
+    searchBar.placeholder = @"Search";
     //searchBar.barStyle = UIBarStyleBlackOpaque;
     
     self.songSearchDisplayController.searchResultsDelegate = self;
@@ -347,8 +347,8 @@ UIView *noResultsView;
 {
    
     NSPredicate *resultPredicate = [NSPredicate
-                                    predicateWithFormat:@"titleEn contains[cd] %@",
-                                    searchText];
+                                    predicateWithFormat:@"(titleEn beginswith[cd] %@) or (titleMl beginswith[cd] %@)",
+                                    searchText, searchText];
     
     searchResults = [songs filteredArrayUsingPredicate:resultPredicate];
 }

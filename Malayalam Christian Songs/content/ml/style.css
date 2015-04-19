@@ -2,15 +2,16 @@
 {
 	font-family: myFont;
 	/*
-    src: url('RachanaMac.ttf');
-    */
+        src: url('Chilanka.ttf');
+	unicode-range: U+0D00–U+0D7F;
+	*/
 }
 
 body {
-	font-family: myFont;
+	font-family: myFont, Helvetica;
 	color: #000;
-    font-size: 1.0em;
-    padding-left: 20px;
+    	font-size: 1.0em;
+    	padding-left: 20px;
 }
 
 ol {
