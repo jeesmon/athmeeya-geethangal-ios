@@ -10,11 +10,10 @@
 #import <MessageUI/MessageUI.h>
 #import "Song.h"
 
-@class AudioStreamer;
 
 @interface DetailViewController : UIViewController <UISplitViewControllerDelegate, UIWebViewDelegate, UIScrollViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate> {
     UIWebView *webView;
-    AudioStreamer *streamer;
+   
 }
 
 -(void) showSong;

@@ -1470,7 +1470,6 @@
 		77583D7D17B5A2AB003D0C45 /* en-OF50.html in Resources */ = {isa = PBXBuildFile; fileRef = 775832FC17B5A29D003D0C45 /* en-OF50.html */; };
 		77583D7E17B5A2AB003D0C45 /* en-OF51.html in Resources */ = {isa = PBXBuildFile; fileRef = 775832FD17B5A29D003D0C45 /* en-OF51.html */; };
 		77583D7F17B5A2AB003D0C45 /* en-OF52.html in Resources */ = {isa = PBXBuildFile; fileRef = 775832FE17B5A29D003D0C45 /* en-OF52.html */; };
-		77583D8217B5A2AB003D0C45 /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 7758330117B5A29D003D0C45 /* template.html */; };
 		77583D8317B5A2AB003D0C45 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 7758330317B5A29D003D0C45 /* about.html */; };
 		77583D8417B5A2AB003D0C45 /* ml-01.html in Resources */ = {isa = PBXBuildFile; fileRef = 7758330417B5A29D003D0C45 /* ml-01.html */; };
 		77583D8517B5A2AB003D0C45 /* ml-1.html in Resources */ = {isa = PBXBuildFile; fileRef = 7758330517B5A29D003D0C45 /* ml-1.html */; };
@@ -2816,7 +2815,6 @@
 		775842C717B5A4B7003D0C45 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 775842C517B5A4B6003D0C45 /* WebViewController.m */; };
 		775842C817B5A4B7003D0C45 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 775842C617B5A4B7003D0C45 /* WebViewController.xib */; };
 		775842CB17BAE6E4003D0C45 /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 775842CA17BAE6E4003D0C45 /* Toast+UIView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		775842D017BAEE8B003D0C45 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 775842CD17BAEE8A003D0C45 /* AudioStreamer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		775842D317BAEEDE003D0C45 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775842D217BAEEDE003D0C45 /* MediaPlayer.framework */; };
 		775842D517BC3B78003D0C45 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775842D417BC3B78003D0C45 /* AudioToolbox.framework */; };
 		775842D717BC3C1C003D0C45 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 775842D617BC3C1C003D0C45 /* CFNetwork.framework */; };
@@ -4309,7 +4307,6 @@
 		775832FC17B5A29D003D0C45 /* en-OF50.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "en-OF50.html"; sourceTree = "<group>"; };
 		775832FD17B5A29D003D0C45 /* en-OF51.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "en-OF51.html"; sourceTree = "<group>"; };
 		775832FE17B5A29D003D0C45 /* en-OF52.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "en-OF52.html"; sourceTree = "<group>"; };
-		7758330117B5A29D003D0C45 /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
 		7758330317B5A29D003D0C45 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		7758330417B5A29D003D0C45 /* ml-01.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "ml-01.html"; sourceTree = "<group>"; };
 		7758330517B5A29D003D0C45 /* ml-1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "ml-1.html"; sourceTree = "<group>"; };
@@ -5657,8 +5654,6 @@
 		775842C617B5A4B7003D0C45 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		775842C917BAE6E3003D0C45 /* Toast+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Toast+UIView.h"; sourceTree = "<group>"; };
 		775842CA17BAE6E4003D0C45 /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Toast+UIView.m"; sourceTree = "<group>"; };
-		775842CC17BAEE89003D0C45 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
-		775842CD17BAEE8A003D0C45 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
 		775842D217BAEEDE003D0C45 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		775842D417BC3B78003D0C45 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		775842D617BC3C1C003D0C45 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -7128,7 +7123,6 @@
 				775832FC17B5A29D003D0C45 /* en-OF50.html */,
 				775832FD17B5A29D003D0C45 /* en-OF51.html */,
 				775832FE17B5A29D003D0C45 /* en-OF52.html */,
-				7758330117B5A29D003D0C45 /* template.html */,
 			);
 			path = en;
 			sourceTree = "<group>";
@@ -8611,8 +8605,6 @@
 		77F982211795F5A1007DDD68 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				775842CC17BAEE89003D0C45 /* AudioStreamer.h */,
-				775842CD17BAEE8A003D0C45 /* AudioStreamer.m */,
 				775842C917BAE6E3003D0C45 /* Toast+UIView.h */,
 				775842CA17BAE6E4003D0C45 /* Toast+UIView.m */,
 				77C9F276171E03F300260272 /* MasterViewController.h */,
@@ -10105,7 +10097,6 @@
 				77583D7D17B5A2AB003D0C45 /* en-OF50.html in Resources */,
 				77583D7E17B5A2AB003D0C45 /* en-OF51.html in Resources */,
 				77583D7F17B5A2AB003D0C45 /* en-OF52.html in Resources */,
-				77583D8217B5A2AB003D0C45 /* template.html in Resources */,
 				77583D8317B5A2AB003D0C45 /* about.html in Resources */,
 				77583D8417B5A2AB003D0C45 /* ml-01.html in Resources */,
 				77583D8517B5A2AB003D0C45 /* ml-1.html in Resources */,
@@ -11534,7 +11525,6 @@
 				77F9822A1795FFA4007DDD68 /* Song.m in Sources */,
 				775842C717B5A4B7003D0C45 /* WebViewController.m in Sources */,
 				775842CB17BAE6E4003D0C45 /* Toast+UIView.m in Sources */,
-				775842D017BAEE8B003D0C45 /* AudioStreamer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

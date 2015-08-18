@@ -11,7 +11,7 @@
 #import "Toast+UIView.h"
 #import "SongLangType.h"
 #import "SongDao.h"
-#import "AudioStreamer.h"
+
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -21,7 +21,6 @@
 @implementation DetailViewController
 
 UIBarButtonItem *langDetailButton;
-UIBarButtonItem *audioButton;
 SongLangType currentDetailLangType;
 int scrollOffset = 0;
 bool playing = NO;
@@ -89,14 +88,13 @@ bool playing = NO;
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *minusButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"minus.png"] style:UIBarButtonItemStylePlain target:self action:@selector(decreaseTextSize)];
     UIBarButtonItem *plusButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"plus.png"] style:UIBarButtonItemStylePlain target:self action:@selector(increaseTextSize)];
     UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActions)];
     
-    audioButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"play.png"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleSong)];
-    
-    //UIBarButtonItem *youtubeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"youtube.png"] style:UIBarButtonItemStylePlain target:self action:@selector(youtubeSearch)];
+   
     
     if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         self.navigationController.toolbar.tintColor = [UIColor blackColor];
@@ -121,25 +119,6 @@ bool playing = NO;
     }
     actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
     [actionSheet showInView:self.view];
-}
-
--(void) toggleSong {
-   
-    if(playing) {
-        if(streamer) {
-            [streamer pause];
-            audioButton.image = [UIImage imageNamed: @"play.png"];
-            playing = NO;
-        }
-    }
-    else {
-        if(!streamer) {
-            [self createStreamer];            
-        }
-        [streamer start];
-        playing = YES;
-        audioButton.image = [UIImage imageNamed: @"pause.png"];
-    }
 }
 
 - (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -316,44 +295,17 @@ bool playing = NO;
 - (void)viewWillAppear:(BOOL)animated
 {
 
+    [super viewWillAppear:animated];
     self.navigationController.toolbarHidden = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     self.navigationController.toolbarHidden = YES;
-    [self destroyStreamer];
+   
 }
 
-- (void)createStreamer
-{
-	if (streamer)
-	{
-		return;
-	}
-    
-	[self destroyStreamer];
-    
-    NSString *escapedValue = [NSString stringWithFormat:@"http://jeesmon.csoft.net/songs/1162_AAKAASHAME_KEELKKA_BHUMIYEE.MP3"];
-    
-	NSURL *url = [NSURL URLWithString:escapedValue];
-	streamer = [[AudioStreamer alloc] initWithURL:url];
-}
-
-- (void)destroyStreamer
-{
-	if (streamer)
-	{
-		[streamer stop];
-		streamer = nil;
-	}
-    playing = NO;
-}
-
-- (void)dealloc
-{
-	[self destroyStreamer];
-}
 #pragma mark UIWebViewDelegate
 
 //- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;

@@ -111,7 +111,7 @@ UIView *noResultsView;
     Song *song;
     
     if(tableView == self.tableView) {
-        int row = [[sectionIndexArray objectAtIndex:indexPath.section] integerValue] + indexPath.row;
+        NSInteger row = [[sectionIndexArray objectAtIndex:indexPath.section] integerValue] + indexPath.row;
         song = [songs objectAtIndex:row];
     }
     else {
@@ -133,7 +133,7 @@ UIView *noResultsView;
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
     
-        int row = [[sectionIndexArray objectAtIndex:indexPath.section] integerValue] + indexPath.row;
+        NSInteger row = [[sectionIndexArray objectAtIndex:indexPath.section] integerValue] + indexPath.row;
         Song *song = [songs objectAtIndex:row];
         SongDao *dao = [[SongDao alloc] init];
         [dao deleteBookmark:song];
@@ -150,7 +150,7 @@ UIView *noResultsView;
     Song *song;
     
     if(tableView == self.tableView) {
-        int row = [[sectionIndexArray objectAtIndex:indexPath.section] integerValue] + indexPath.row;
+        NSInteger row = [[sectionIndexArray objectAtIndex:indexPath.section] integerValue] + indexPath.row;
         song = [songs objectAtIndex:row];
     }
     else {
@@ -184,6 +184,8 @@ UIView *noResultsView;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
     //self.navigationController.toolbar.barStyle = UIBarStyleBlack;
     self.navigationController.toolbarHidden = YES;
     
@@ -290,12 +292,13 @@ UIView *noResultsView;
 - (void) setupNoResultsView {
     UILabel *noResultsLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     noResultsLabel.font = [UIFont boldSystemFontOfSize:20];
-    noResultsLabel.minimumFontSize = 12.0f;
+    noResultsLabel.adjustsFontSizeToFitWidth = YES;
+    noResultsLabel.minimumScaleFactor = 12.0/20.0;
     noResultsLabel.numberOfLines = 1;
-    noResultsLabel.lineBreakMode = UILineBreakModeWordWrap;
+    noResultsLabel.lineBreakMode = NSLineBreakByWordWrapping;
     noResultsLabel.textColor = [UIColor lightGrayColor];
     noResultsLabel.backgroundColor = [UIColor clearColor];
-    noResultsLabel.textAlignment =  UITextAlignmentCenter;
+    noResultsLabel.textAlignment =  NSTextAlignmentCenter;
     
     //Here is the text for when there are no results
     noResultsLabel.text = @"No Bookmarks";
