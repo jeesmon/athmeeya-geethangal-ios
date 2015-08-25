@@ -13,6 +13,7 @@
 #import "DetailViewController.h"
 #import "Song.h"
 #import "SongDao.h"
+#import "UIDeviceHardware.h"
 
 @implementation AppDelegate
 
@@ -24,6 +25,11 @@
         NSLog(@"Error copying bookmarks database");
     }
     
+    BOOL isOS7 = NO;
+    if ([UIDeviceHardware isOS7Device]) {
+        isOS7 = YES;
+    }
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         MasterViewController *masterViewController = [[MasterViewController alloc] init];
@@ -33,17 +39,17 @@
                                                       
         self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
         
-        self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+        if (isOS7) self.navigationController.navigationBar.tintColor = [UIColor blackColor];
         
         self.window.rootViewController = self.navigationController;
     } else {
         MasterViewController *masterViewController = [[MasterViewController alloc] init];
         UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
-        masterNavigationController.navigationBar.tintColor = [UIColor blackColor];
+        if (isOS7) masterNavigationController.navigationBar.tintColor = [UIColor blackColor];
         
         DetailViewController *detailViewController = [[DetailViewController alloc] init];
         UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
-        detailNavigationController.navigationBar.tintColor = [UIColor blackColor];
+        if (isOS7) detailNavigationController.navigationBar.tintColor = [UIColor blackColor];
     	
         Song *song = [songDao fetchFirstSong:@"songs" withLangType:SongLangTypeMalayalam];
         

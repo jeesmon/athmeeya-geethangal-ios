@@ -11,6 +11,7 @@
 #import "Toast+UIView.h"
 #import "SongLangType.h"
 #import "SongDao.h"
+#import "UIDeviceHardware.h"
 
 
 @interface DetailViewController ()
@@ -94,15 +95,18 @@ bool playing = NO;
     UIBarButtonItem *plusButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"plus.png"] style:UIBarButtonItemStylePlain target:self action:@selector(increaseTextSize)];
     UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActions)];
     
-   
+    BOOL isOS7 = NO;
+    if ([UIDeviceHardware isOS7Device]) {
+        isOS7 = YES;
+    }
     
     if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        self.navigationController.toolbar.tintColor = [UIColor blackColor];
+        if(isOS7) self.navigationController.toolbar.tintColor = [UIColor blackColor];
         self.navigationController.toolbarHidden = NO;
     }
     
-    self.navigationController.toolbar.barTintColor = [UIColor whiteColor];
-    self.navigationController.toolbar.tintColor = [UIColor blackColor];
+    if(isOS7) self.navigationController.toolbar.barTintColor = [UIColor whiteColor];
+    if(isOS7) self.navigationController.toolbar.tintColor = [UIColor blackColor];
     self.navigationController.toolbar.barStyle = UIBarStyleDefault;
     [self.navigationController.toolbar setItems:@[actionButton, flexSpace, minusButton, flexSpace, plusButton] animated:YES];
 }

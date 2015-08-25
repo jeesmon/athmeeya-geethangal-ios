@@ -2841,6 +2841,7 @@
 		77F9968C179A4AF0007DDD68 /* minus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77F99688179A4AEB007DDD68 /* minus@2x.png */; };
 		77F9968D179A4AF0007DDD68 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 77F99689179A4AEC007DDD68 /* plus.png */; };
 		77F9968E179A4AF0007DDD68 /* plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77F9968A179A4AEE007DDD68 /* plus@2x.png */; };
+		8F46B4531B8C083E00201DBF /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F46B4521B8C083E00201DBF /* UIDeviceHardware.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -5689,6 +5690,8 @@
 		77F99689179A4AEC007DDD68 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		77F9968A179A4AEE007DDD68 /* plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus@2x.png"; sourceTree = "<group>"; };
 		77F99691179AC1A4007DDD68 /* SongLangType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SongLangType.h; sourceTree = "<group>"; };
+		8F46B4511B8C083E00201DBF /* UIDeviceHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDeviceHardware.h; sourceTree = "<group>"; };
+		8F46B4521B8C083E00201DBF /* UIDeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDeviceHardware.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -8605,6 +8608,8 @@
 		77F982211795F5A1007DDD68 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8F46B4511B8C083E00201DBF /* UIDeviceHardware.h */,
+				8F46B4521B8C083E00201DBF /* UIDeviceHardware.m */,
 				775842C917BAE6E3003D0C45 /* Toast+UIView.h */,
 				775842CA17BAE6E4003D0C45 /* Toast+UIView.m */,
 				77C9F276171E03F300260272 /* MasterViewController.h */,
@@ -11520,6 +11525,7 @@
 				77C9F26B171E03F200260272 /* main.m in Sources */,
 				77C9F26F171E03F200260272 /* AppDelegate.m in Sources */,
 				77C9F278171E03F300260272 /* MasterViewController.m in Sources */,
+				8F46B4531B8C083E00201DBF /* UIDeviceHardware.m in Sources */,
 				77C9F27B171E03F300260272 /* DetailViewController.m in Sources */,
 				77F982241795F67C007DDD68 /* SongDao.m in Sources */,
 				77F9822A1795FFA4007DDD68 /* Song.m in Sources */,
@@ -11554,7 +11560,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jeesmon Jacob (28LDT98ZTB)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -11570,6 +11576,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = christiansongs;
+				PROVISIONING_PROFILE = "519a7fbc-22ad-4794-83f5-c4693d5c6685";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -11587,7 +11594,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jeesmon Jacob (58V2A74LJ7)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -11596,6 +11603,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = christiansongs;
+				PROVISIONING_PROFILE = "0f54cfc1-ed3f-4b02-ada1-177ee0ae6859";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -11608,12 +11616,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jeesmon Jacob (28LDT98ZTB)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Malayalam Christian Songs/Malayalam Christian Songs-Prefix.pch";
 				INFOPLIST_FILE = "Malayalam Christian Songs/Malayalam Christian Songs-Info.plist";
 				PRODUCT_NAME = christiansongs;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "519a7fbc-22ad-4794-83f5-c4693d5c6685";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -11623,13 +11631,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jeesmon Jacob (58V2A74LJ7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Malayalam Christian Songs/Malayalam Christian Songs-Prefix.pch";
 				INFOPLIST_FILE = "Malayalam Christian Songs/Malayalam Christian Songs-Info.plist";
 				PRODUCT_NAME = christiansongs;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0f54cfc1-ed3f-4b02-ada1-177ee0ae6859";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
